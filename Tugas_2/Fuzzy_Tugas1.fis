@@ -1,0 +1,71 @@
+[System]
+Name='Fuzzy_Tugas1'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=3
+NumRules=13
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Deadline'
+Range=[0 10]
+NumMFs=2
+MF1='dekat':'trimf',[0 0 6]
+MF2='lama':'trimf',[4 10 10]
+
+[Input2]
+Name='Kesulitan'
+Range=[0 10]
+NumMFs=3
+MF1='Sulit':'gaussmf',[2 0]
+MF2='Sedang':'gaussmf',[2 5]
+MF3='mudah':'gaussmf',[2 10]
+
+[Input3]
+Name='Jumlah'
+Range=[0 10]
+NumMFs=3
+MF1='Banyak':'trimf',[-4 0 4]
+MF2='Sedang':'trimf',[1 5 9]
+MF3='Sedikit':'trimf',[6 10 14]
+
+[Output1]
+Name='tanyaTeman'
+Range=[0 10]
+NumMFs=2
+MF1='Ya':'trimf',[0 0 6]
+MF2='Tidak':'trimf',[4 10 10]
+
+[Output2]
+Name='kerjakan'
+Range=[0 10]
+NumMFs=2
+MF1='Sekarang':'trapmf',[0 0 3 6]
+MF2='Nanti':'trapmf',[4 7 10 10]
+
+[Output3]
+Name='bukaBuku'
+Range=[0 10]
+NumMFs=2
+MF1='ya':'trimf',[0 0 6]
+MF2='tidak':'trimf',[4 10 10]
+
+[Rules]
+2 3 3, 2 2 0 (1) : 1
+2 3 2, 2 2 2 (1) : 1
+2 3 1, 2 1 2 (1) : 1
+2 2 3, 2 2 1 (1) : 1
+2 2 2, 2 2 1 (1) : 1
+2 2 1, 2 2 1 (1) : 1
+2 1 3, 1 1 2 (1) : 1
+2 1 2, 1 1 1 (1) : 1
+2 1 1, 1 1 1 (1) : 1
+1 3 2, 2 1 1 (1) : 1
+1 2 2, 2 1 1 (1) : 1
+1 2 1, 1 1 1 (1) : 1
+1 1 1, 1 1 1 (1) : 1
